@@ -22,6 +22,14 @@ class MyWidget(QMainWindow):
             self.spn = [self.spn[0] + 0.001, self.spn[1] + 0.001]
         elif event.key() == Qt.Key_PageDown:
             self.spn = [self.spn[0] - 0.001, self.spn[1] - 0.001]
+        elif event.key() == Qt.Key_Up:
+            self.ll = [self.ll[0], self.ll[1] + 0.0001]
+        elif event.key() == Qt.Key_Down:
+            self.ll = [self.ll[0], self.ll[1] - 0.0001]
+        elif event.key() == Qt.Key_Left:
+            self.ll = [self.ll[0] - 0.0001, self.ll[1]]
+        elif event.key() == Qt.Key_Right:
+            self.ll = [self.ll[0] + 0.0001, self.ll[1]]
         self.run()
 
     def run(self):
