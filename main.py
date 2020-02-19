@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 import os
 import sys
 import requests
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QColor, QPalette
 from PyQt5.QtCore import Qt
 
 
@@ -12,16 +12,50 @@ class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('map.ui', self)
+        self.map.setFocus()
         self.spn = [0.002, 0.002]
         self.L = 'map'
+        self.format_of_map = "png"
         self.ll = [37.530887, 55.703118]
+        self.map_api_server = "http://static-maps.yandex.ru/1.x/"
+        self.initui()
+
+    def initui(self):
+        self.setWindowTitle("Map")
+        self.setStyleSheet("QWidget {background: #00aaff}")
+        self.run()
+        self.btn_map.clicked.connect(self.change_to_map)
+        self.btn_map.setStyleSheet("QPushButton {background: green;}")
+        self.btn_sat.clicked.connect(self.change_to_sat)
+        self.btn_sat.setStyleSheet("QPushButton {background: green;}")
+        self.btn_sat_skl.clicked.connect(self.change_to_sat_skl)
+        self.btn_sat_skl.setStyleSheet("QPushButton {background: green;}")
+        self.btn_reload.clicked.connect(self.reload_map)
+        self.btn_reload.setStyleSheet("QPushButton {background: #aa00ff;}")
+
+    def change_to_map(self):
+        self.L = "map"
+        self.format_of_map = "png"
+        self.run()
+
+    def change_to_sat(self):
+        self.L = "sat"
+        self.format_of_map = "jpg"
+        self.run()
+
+    def change_to_sat_skl(self):
+        self.L = "sat,skl"
+        self.format_of_map = "jpg"
+        self.run()
+
+    def reload_map(self):
         self.run()
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_PageUp:
-            self.spn = [self.spn[0] + 0.001, self.spn[1] + 0.001]
+            self.spn = [min(10.0, self.spn[0] + 0.001), min(10.0, self.spn[1] + 0.001)]
         elif event.key() == Qt.Key_PageDown:
-            self.spn = [self.spn[0] - 0.001, self.spn[1] - 0.001]
+            self.spn = [max(0, self.spn[0] - 0.001), max(0, self.spn[1] - 0.001)]
         elif event.key() == Qt.Key_Up:
             self.ll = [self.ll[0], self.ll[1] + 0.0001]
         elif event.key() == Qt.Key_Down:
@@ -38,9 +72,8 @@ class MyWidget(QMainWindow):
             "spn": f"{self.spn[0]},{str(self.spn[1])}",
             "l": self.L
         }
-        map_api_server = "http://static-maps.yandex.ru/1.x/"
-        response = requests.get(map_api_server, params=map_params)
-        self.map_file = "map.png"
+        response = requests.get(self.map_api_server, params=map_params)
+        self.map_file = f"map.{self.format_of_map}"
         with open(self.map_file, "wb") as file:
             file.write(response.content)
         self.pixmap = QPixmap(self.map_file)

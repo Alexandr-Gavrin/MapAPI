@@ -26,6 +26,78 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_map">
+   <property name="geometry">
+    <rect>
+     <x>525</x>
+     <y>50</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Схема</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_sat">
+   <property name="geometry">
+    <rect>
+     <x>525</x>
+     <y>183</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Спутник</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_sat_skl">
+   <property name="geometry">
+    <rect>
+     <x>525</x>
+     <y>316</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Гибрид</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_reload">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>600</y>
+     <width>80</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Установить</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
