@@ -5,6 +5,7 @@ import os
 import sys
 import requests
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import Qt
 
 
 class MyWidget(QMainWindow):
@@ -14,6 +15,13 @@ class MyWidget(QMainWindow):
         self.spn = [0.002, 0.002]
         self.L = 'map'
         self.ll = [37.530887, 55.703118]
+        self.run()
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_PageUp:
+            self.spn = [self.spn[0] + 0.001, self.spn[1] + 0.001]
+        elif event.key() == Qt.Key_PageDown:
+            self.spn = [self.spn[0] - 0.001, self.spn[1] - 0.001]
         self.run()
 
     def run(self):
