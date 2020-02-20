@@ -17,7 +17,7 @@ class MyWidget(QMainWindow):
         self.L = 'map'
         self.format_of_map = "png"
         self.pt = None
-        self.ll = [37.530887, 55.703118]
+        self.ll = [37.530687, 55.703118]
         self.map_api_server = "http://static-maps.yandex.ru/1.x/"
         self.initui()
 
