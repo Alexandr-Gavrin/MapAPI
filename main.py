@@ -32,6 +32,12 @@ class MyWidget(QMainWindow):
         self.btn_sat_skl.clicked.connect(self.change_to_sat_skl)
         self.btn_sat_skl.setStyleSheet("QPushButton {background: green;}")
         self.btn_search.clicked.connect(self.search)
+        self.btn_reset.clicked.connect(self.reset)
+
+    def reset(self):
+        self.pt = None
+        self.line_to_search.setText('')
+        self.run()
 
     def search(self):
         try:

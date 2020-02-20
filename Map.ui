@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
+    <width>797</width>
     <height>697</height>
    </rect>
   </property>
@@ -16,9 +16,9 @@
   <widget class="QLabel" name="map">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>20</y>
-     <width>521</width>
+     <width>561</width>
      <height>471</height>
     </rect>
    </property>
@@ -29,7 +29,7 @@
   <widget class="QPushButton" name="btn_map">
    <property name="geometry">
     <rect>
-     <x>570</x>
+     <x>660</x>
      <y>80</y>
      <width>100</width>
      <height>51</height>
@@ -47,7 +47,7 @@
   <widget class="QPushButton" name="btn_sat">
    <property name="geometry">
     <rect>
-     <x>570</x>
+     <x>660</x>
      <y>170</y>
      <width>100</width>
      <height>51</height>
@@ -65,8 +65,8 @@
   <widget class="QPushButton" name="btn_sat_skl">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>260</y>
+     <x>660</x>
+     <y>270</y>
      <width>100</width>
      <height>51</height>
     </rect>
@@ -135,6 +135,27 @@
    </property>
    <property name="text">
     <string>Введите адресс объекта:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_reset">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>640</y>
+     <width>281</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(247, 136, 103);</string>
+   </property>
+   <property name="text">
+    <string>Сброс поискового результата</string>
    </property>
   </widget>
  </widget>
