@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>797</width>
-    <height>697</height>
+    <width>846</width>
+    <height>782</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>20</y>
-     <width>561</width>
+     <y>30</y>
+     <width>601</width>
      <height>471</height>
     </rect>
    </property>
@@ -29,7 +29,7 @@
   <widget class="QPushButton" name="btn_map">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>710</x>
      <y>80</y>
      <width>100</width>
      <height>51</height>
@@ -47,7 +47,7 @@
   <widget class="QPushButton" name="btn_sat">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>710</x>
      <y>170</y>
      <width>100</width>
      <height>51</height>
@@ -65,7 +65,7 @@
   <widget class="QPushButton" name="btn_sat_skl">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>710</x>
      <y>270</y>
      <width>100</width>
      <height>51</height>
@@ -83,8 +83,8 @@
   <widget class="QPushButton" name="btn_search">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>640</y>
+     <x>270</x>
+     <y>710</y>
      <width>151</width>
      <height>41</height>
     </rect>
@@ -104,8 +104,8 @@
   <widget class="QLineEdit" name="line_to_search">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>640</y>
+     <x>30</x>
+     <y>710</y>
      <width>221</width>
      <height>41</height>
     </rect>
@@ -122,8 +122,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>600</y>
+     <x>30</x>
+     <y>670</y>
      <width>251</width>
      <height>31</height>
     </rect>
@@ -140,8 +140,8 @@
   <widget class="QPushButton" name="btn_reset">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>640</y>
+     <x>510</x>
+     <y>710</y>
      <width>281</width>
      <height>41</height>
     </rect>
@@ -156,6 +156,24 @@
    </property>
    <property name="text">
     <string>Сброс поискового результата</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="full_adress">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>620</y>
+     <width>781</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Полный адрес объекта:</string>
    </property>
   </widget>
  </widget>
