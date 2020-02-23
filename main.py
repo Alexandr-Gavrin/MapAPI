@@ -1,10 +1,8 @@
-import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
-import os
+from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
 import requests
-from PyQt5.QtGui import QPixmap, QColor, QPalette
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 
 
@@ -17,7 +15,7 @@ class MyWidget(QMainWindow):
         self.L = 'map'
         self.format_of_map = "png"
         self.pt = None
-        self.ll = [37.530887, 55.703118]
+        self.ll = [37.530886, 55.703118]
         self.map_api_server = "http://static-maps.yandex.ru/1.x/"
         self.initui()
 
@@ -32,6 +30,13 @@ class MyWidget(QMainWindow):
         self.btn_sat_skl.clicked.connect(self.change_to_sat_skl)
         self.btn_sat_skl.setStyleSheet("QPushButton {background: green;}")
         self.btn_search.clicked.connect(self.search)
+        self.btn_reset.clicked.connect(self.reset)
+
+    def reset(self):
+        self.map.setFocus()
+        self.pt = None
+        self.line_to_search.setText('')
+        self.run()
 
     def search(self):
         self.map.setFocus()
