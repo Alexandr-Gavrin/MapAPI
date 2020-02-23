@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>700</width>
-    <height>697</height>
+    <height>698</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -135,6 +135,27 @@
    </property>
    <property name="text">
     <string>Введите адресс объекта:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_reset">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>640</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: green;</string>
+   </property>
+   <property name="text">
+    <string>Сбросить</string>
    </property>
   </widget>
  </widget>
