@@ -1,8 +1,10 @@
+import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
+import os
 import sys
 import requests
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QColor, QPalette
 from PyQt5.QtCore import Qt
 
 
@@ -33,9 +35,10 @@ class MyWidget(QMainWindow):
         self.btn_reset.clicked.connect(self.reset)
 
     def reset(self):
-        self.map.setFocus()
         self.pt = None
+        self.map.setFocus()
         self.line_to_search.setText('')
+        self.adress.setText('Полный адрес:')
         self.run()
 
     def search(self):
@@ -52,6 +55,9 @@ class MyWidget(QMainWindow):
             toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0][
                 "GeoObject"]
             toponym_coodrinates = toponym["Point"]["pos"]
+            toponym_adress = toponym['metaDataProperty']['GeocoderMetaData']['Address'][
+                'formatted']
+            self.adress.setText(f'Полный адрес: {toponym_adress}')
             self.ll = [float(toponym_coodrinates.split(" ")[0]),
                        float(toponym_coodrinates.split(" ")[1])]
             self.pt = [float(toponym_coodrinates.split(" ")[0]),
