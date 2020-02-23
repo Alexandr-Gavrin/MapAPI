@@ -45,10 +45,19 @@ class MyWidget(QMainWindow):
         self.run()
 
     def keyPressEvent(self, event):
+        print(1)
         if event.key() == Qt.Key_PageUp:
             self.spn = [min(10.0, self.spn[0] + 0.001), min(10.0, self.spn[1] + 0.001)]
         elif event.key() == Qt.Key_PageDown:
             self.spn = [max(0, self.spn[0] - 0.001), max(0, self.spn[1] - 0.001)]
+        elif event.key() == Qt.Key_Up:
+            self.ll = [self.ll[0], self.ll[1] + 0.001]
+        elif event.key() == Qt.Key_Down:
+            self.ll = [self.ll[0], self.ll[1] - 0.001]
+        elif event.key() == Qt.Key_Left:
+            self.ll = [self.ll[0] - 0.001, self.ll[1]]
+        elif event.key() == Qt.Key_Right:
+            self.ll = [self.ll[0] + 0.001, self.ll[1]]
         self.run()
 
     def run(self):
