@@ -37,6 +37,7 @@ class MyWidget(QMainWindow):
     def reset(self):
         self.pt = None
         self.line_to_search.setText('')
+        self.adress.setText('Полный адрес:')
         self.run()
 
     def search(self):
@@ -52,6 +53,9 @@ class MyWidget(QMainWindow):
             toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0][
                 "GeoObject"]
             toponym_coodrinates = toponym["Point"]["pos"]
+            toponym_adress = toponym['metaDataProperty']['GeocoderMetaData']['Address'][
+                'formatted']
+            self.adress.setText(f'Полный адрес: {toponym_adress}')
             self.ll = [float(toponym_coodrinates.split(" ")[0]),
                        float(toponym_coodrinates.split(" ")[1])]
             self.pt = [float(toponym_coodrinates.split(" ")[0]),
