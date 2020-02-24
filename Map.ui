@@ -19,7 +19,7 @@
      <x>20</x>
      <y>20</y>
      <width>521</width>
-     <height>441</height>
+     <height>471</height>
     </rect>
    </property>
    <property name="text">
@@ -135,45 +135,6 @@
    </property>
    <property name="text">
     <string>Введите адресс объекта:</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_reset">
-   <property name="geometry">
-    <rect>
-     <x>520</x>
-     <y>640</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: green;</string>
-   </property>
-   <property name="text">
-    <string>Сбросить</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="adress">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>500</y>
-     <width>641</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Полный адрес:</string>
    </property>
   </widget>
  </widget>
