@@ -1,10 +1,8 @@
-import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
-import os
+from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
 import requests
-from PyQt5.QtGui import QPixmap, QColor, QPalette
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 
 
@@ -17,7 +15,7 @@ class MyWidget(QMainWindow):
         self.L = 'map'
         self.format_of_map = "png"
         self.pt = None
-        self.ll = [37.530887, 55.703118]
+        self.ll = [37.530886, 55.703118]
         self.map_api_server = "http://static-maps.yandex.ru/1.x/"
         self.initui()
 
@@ -32,8 +30,16 @@ class MyWidget(QMainWindow):
         self.btn_sat_skl.clicked.connect(self.change_to_sat_skl)
         self.btn_sat_skl.setStyleSheet("QPushButton {background: green;}")
         self.btn_search.clicked.connect(self.search)
+        self.btn_reset.clicked.connect(self.reset)
+
+    def reset(self):
+        self.map.setFocus()
+        self.pt = None
+        self.line_to_search.setText('')
+        self.run()
 
     def search(self):
+        self.map.setFocus()
         try:
             toponym_to_find = self.line_to_search.text()
             geocoder_api_server = "http://geocode-maps.yandex.ru/1.x/"
@@ -50,42 +56,47 @@ class MyWidget(QMainWindow):
                        float(toponym_coodrinates.split(" ")[1])]
             self.pt = [float(toponym_coodrinates.split(" ")[0]),
                        float(toponym_coodrinates.split(" ")[1])]
-            self.map.setFocus()
             self.run()
         except Exception:
             pass
 
     def change_to_map(self):
+        self.map.setFocus()
         self.L = "map"
         self.format_of_map = "png"
-        self.map.setFocus()
         self.run()
 
     def change_to_sat(self):
+        self.map.setFocus()
         self.L = "sat"
         self.format_of_map = "jpg"
-        self.map.setFocus()
         self.run()
 
     def change_to_sat_skl(self):
+        self.map.setFocus()
         self.L = "sat,skl"
         self.format_of_map = "jpg"
-        self.map.setFocus()
         self.run()
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_PageUp:
             self.spn = [min(10.0, self.spn[0] + 0.01), min(10.0, self.spn[1] + 0.01)]
+            self.setFocus()
         elif event.key() == Qt.Key_PageDown:
             self.spn = [max(0, self.spn[0] - 0.01), max(0, self.spn[1] - 0.01)]
+            self.setFocus()
         elif event.key() == Qt.Key_Up:
             self.ll = [self.ll[0], self.ll[1] + 0.001]
+            self.setFocus()
         elif event.key() == Qt.Key_Down:
             self.ll = [self.ll[0], self.ll[1] - 0.001]
+            self.setFocus()
         elif event.key() == Qt.Key_Left:
             self.ll = [self.ll[0] - 0.001, self.ll[1]]
+            self.setFocus()
         elif event.key() == Qt.Key_Right:
             self.ll = [self.ll[0] + 0.001, self.ll[1]]
+            self.setFocus()
         self.run()
 
     def run(self):
