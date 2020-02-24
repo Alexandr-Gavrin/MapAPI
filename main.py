@@ -57,7 +57,15 @@ class MyWidget(QMainWindow):
             toponym_coodrinates = toponym["Point"]["pos"]
             toponym_adress = toponym['metaDataProperty']['GeocoderMetaData']['Address'][
                 'formatted']
-            self.adress.setText(f'Полный адрес: {toponym_adress}')
+            if self.adress_2.isChecked():
+                try:
+                    index = toponym['metaDataProperty']['GeocoderMetaData']['Address']['postal_code']
+                    toponym_adress += f'\n {index}'
+                except Exception:
+                    toponym_adress += '\nПочтовый индекс не найден'
+                self.adress.setText(f'Полный адрес: {toponym_adress}')
+            else:
+                self.adress.setText(f'Полный адрес: {toponym_adress}')
             self.ll = [float(toponym_coodrinates.split(" ")[0]),
                        float(toponym_coodrinates.split(" ")[1])]
             self.pt = [float(toponym_coodrinates.split(" ")[0]),
